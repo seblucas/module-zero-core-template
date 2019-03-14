@@ -18,7 +18,8 @@ namespace AbpCompanyName.AbpProjectName.EntityFrameworkCore
 
         public override void PreInitialize()
         {
-            if (!SkipDbContextRegistration)
+			Configuration.UnitOfWork.IsTransactional = false;
+			if (!SkipDbContextRegistration)
             {
                 Configuration.Modules.AbpEfCore().AddDbContext<AbpProjectNameDbContext>(options =>
                 {
